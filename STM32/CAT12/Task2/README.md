@@ -8,7 +8,7 @@
 
 ---
 
-## TASK 2 – GPIO Input/Output using Push Button and LED
+## TASK 2 – On Board Switch Control with State Remembrance
 
 ### 1. Circuit Diagram
 
