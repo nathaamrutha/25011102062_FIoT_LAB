@@ -8,7 +8,7 @@
 
 ---
 
-## TASK 10D – HTTP Web Server using STM32 and ESP8266
+## TASK 10D – Observe the HTTP Request
 
 ### 1. Circuit Diagram
 
