@@ -92,19 +92,13 @@ int main(void)
   MX_GPIO_Init();
   MX_USART6_UART_Init();
   /* USER CODE BEGIN 2 */
-//1. Initialize the Wi-Fi module on USART2
 ESP8266_Init(StationMode, huart6);
-// 2. Connect to your local Wi-Fi network (Replace with your Router SSID and Password)
 ESP8266_wifiConnect("SNUC", "snu12345");
-// 3. Connect to your MQTT Broker (Replace with your Broker's IP Address)
-// 1883 is the standard unencrypted MQTT port
 ESP8266_portConnect("TCP", "broker.emqx.io", "1883");
-// 4. Configure the MQTT client connection parameters
 MQTT_InitTypeDef_t mqttSetting;
 mqttSetting.keepAlive = 500;
 mqttSetting.connectFlag = CleanSession;
 mqttSetting.clientID = "STM32_Publisher";
-// 5. Handshake with the MQTT broker
 MQTT_connectBroker(&mqttSetting);
 /* USER CODE END 2 /
  Infinite loop /

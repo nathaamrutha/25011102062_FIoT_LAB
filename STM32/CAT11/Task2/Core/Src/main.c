@@ -101,15 +101,10 @@ int main(void)
     currentButtonState=HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
         if (lastButtonState == GPIO_PIN_SET && currentButtonState == GPIO_PIN_RESET){
             HAL_Delay(20);
-
-            
             if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13)
                 == GPIO_PIN_RESET)
             {
-                
                 ledState = !ledState;
-
-                
                 if (ledState == 1)
                 {
                     HAL_GPIO_WritePin(
@@ -120,22 +115,16 @@ int main(void)
                     HAL_GPIO_WritePin(
                         GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
                 }
-
-                
+     
                 while (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13)
                        == GPIO_PIN_RESET)
                 {
                 }
 
-                
                 HAL_Delay(20);
-
-                
                 currentButtonState = GPIO_PIN_SET;
             }
         }
-
-        // Remember the current button state
         lastButtonState = currentButtonState;
   }
   /* USER CODE END 3 */

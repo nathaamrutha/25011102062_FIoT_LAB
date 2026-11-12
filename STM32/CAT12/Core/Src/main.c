@@ -118,16 +118,13 @@ int main(void)
   MX_I2C1_Init();
   MX_USART6_UART_Init();
   /* USER CODE BEGIN 2 */
-static uint8_t dev_addr = BME280_I2C_ADDR_PRIM; // 0x76 (use BME280_I2C_ADDR_SEC if SDO is high
-// Set up the API configuration function pointers 
+static uint8_t dev_addr = BME280_I2C_ADDR_PRIM; 
 dev.intf_ptr = &dev_addr; 
 dev.intf = BME280_I2C_INTF; 
 dev.read = user_i2c_read; 
 dev.write = user_i2c_write; 
-dev.delay_us = user_delay_us; 
-// Initialize the BME280 sensor (This automatically extracts the compensation data) 
+dev.delay_us = user_delay_us;  
 rslt = bme280_init(&dev); 
-// Configure sensor settings
 struct bme280_settings settings = {0};
 settings.osr_h = BME280_OVERSAMPLING_1X; 
 settings.osr_p = BME280_OVERSAMPLING_1X; 
@@ -141,7 +138,7 @@ rslt = bme280_set_sensor_settings(
     &settings,
     &dev
 );
-// Set power mode to normal to enable continuous measurement cycles 
+
 rslt = bme280_set_sensor_mode(BME280_POWERMODE_NORMAL, &dev);
   /* USER CODE END 2 */
 
@@ -150,15 +147,13 @@ rslt = bme280_set_sensor_mode(BME280_POWERMODE_NORMAL, &dev);
   while (1)
   {
     /* USER CODE END WHILE */
-    // Read and automatically compensate data 
 rslt = bme280_get_sensor_data(BME280_ALL, &comp_data, &dev); 
 if (rslt == BME280_OK) { 
-// Bosch formulas process outputs as integers or floats depending on compilation configuration 
-temperature = comp_data.temperature; // °C 
-pressure = comp_data.pressure / 100.0f; // Convert Pa to hPa 
-humidity = comp_data.humidity; // % Relative Humidity 
+temperature = comp_data.temperature; 
+pressure = comp_data.pressure / 100.0f;  
+humidity = comp_data.humidity;  
 } 
-HAL_Delay(1000); // Poll data once per second 
+HAL_Delay(1000);  
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -302,7 +297,7 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
-// Function 1: Read registers from BME280 using STM32 I2C
+
 int8_t user_i2c_read(uint8_t reg_addr,
                      uint8_t *reg_data,
                      uint32_t len,
@@ -328,8 +323,6 @@ int8_t user_i2c_read(uint8_t reg_addr,
     return BME280_E_COMM_FAIL;
 }
 
-
-// Function 2: Write registers to BME280 using STM32 I2C
 int8_t user_i2c_write(uint8_t reg_addr,
                       const uint8_t *reg_data,
                       uint32_t len,
@@ -354,9 +347,6 @@ int8_t user_i2c_write(uint8_t reg_addr,
 
     return BME280_E_COMM_FAIL;
 }
-
-
-// Function 3: Provide delay to the BME280 driver
 void user_delay_us(uint32_t period, void *intf_ptr)
 {
     (void)intf_ptr;
