@@ -1,14 +1,14 @@
 # EXPERIMENT DETAILS
 
-**EXP:** CONTINUOUS ASSESSMENT 10C
+**EXP:** CONTINUOUS ASSESSMENT 11
 
-**NAME OF EXP:** Configure ESP8266 as a TCP Server
+**NAME OF EXP:** STM32–ESP8266 Wi-Fi Configuration and TCP Server Setup using AT Commands
 
 **HARDWARE SETUP / PLATFORM:** STM32CubeMX + Keil MDK + STM32F401RE Development Board + Wemos ESP8266 Wi-Fi Module
 
 ---
 
-## TASK 10C – ESP8266 Wi-Fi Configuration and TCP Server
+## TASK 10C – Configure ESP8266 as a TCP Server
 
 ### 1. Circuit Diagram
 
