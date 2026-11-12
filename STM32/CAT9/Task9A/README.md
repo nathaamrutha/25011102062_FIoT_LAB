@@ -2,13 +2,13 @@
 
 **EXP:** CONTINUOUS ASSESSMENT 9
 
-**NAME OF EXP:** STM32 UART Communication – Character Echo using USART1
+**NAME OF EXP:** Basic UART Communication 
 
 **HARDWARE SETUP / PLATFORM:** STM32CubeMX + Keil MDK + STM32 Development Board Blue Pill STM32F103C8T6
 
 ---
 
-## TASK 8B – UART Communication (Character Echo)
+## TASK 9A – UART Communication
 
 ### 1. Circuit Diagram
 
