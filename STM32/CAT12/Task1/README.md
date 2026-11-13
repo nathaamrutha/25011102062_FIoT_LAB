@@ -1,6 +1,6 @@
 # EXPERIMENT DETAILS
 
-**EXP:** CONTINUOUS ASSESSMENT 12
+**EXP:** CONTINUOUS ASSESSMENT 13
 
 **NAME OF EXP:** STM32 GPIO Output Control – LED Blinking with Custom Time Intervals
 
