@@ -1,6 +1,6 @@
 # EXPERIMENT DETAILS
 
-**EXP:** CONTINUOUS ASSESSMENT 13
+**EXP:** CONTINUOUS ASSESSMENT 12
 
 **NAME OF EXP:** BME280 Sensor Interfacing with STM32 using I2C Communication
 
@@ -8,7 +8,7 @@
 
 ---
 
-## TASK 10 – BME280 Sensor Interfacing using I2C and Bosch Sensor API
+## TASK  – BME280 Sensor Interfacing using I2C and Bosch Sensor API
 
 ### 1. Circuit Diagram
 
