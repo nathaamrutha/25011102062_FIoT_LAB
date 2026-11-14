@@ -14,7 +14,7 @@
 
 The experiment demonstrates communication between the STM32 microcontroller and the Wemos ESP8266 Wi-Fi module using UART communication. AT commands are used to configure the ESP8266 as a Wi-Fi station and establish a TCP server.
 
-![TASK10A](TASK10A.jpeg)
+![TASK11A](TASK11A.jpeg)
 
 **Hardware Components:**
 - **Development Board:** STM32F401RE
