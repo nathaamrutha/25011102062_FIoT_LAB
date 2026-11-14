@@ -16,6 +16,8 @@ The experiment demonstrates MQTT-based communication using the STM32F401RE micro
 
 The STM32 communicates with the ESP8266 through USART6. The ESP8266 connects to a Wi-Fi network and establishes a TCP connection with the public EMQX MQTT broker. The STM32 then publishes messages to a specified MQTT topic using the MQTT protocol.
 
+![CAT14](CAT14.jpeg)
+
 **Hardware Components:**
 
 - **Development Board:** STM32F401RE
