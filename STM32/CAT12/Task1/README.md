@@ -14,6 +14,8 @@
 
 The experiment demonstrates digital output control using the GPIO peripheral of the STM32 microcontroller. The GPIO pin PA5 is configured as an output to control the onboard LED.
 
+![TASK12A](TASK12A.jpeg)
+
 **Hardware Components:**
 
 - **Development Board:** STM32F401RE
