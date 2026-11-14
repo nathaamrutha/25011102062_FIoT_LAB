@@ -16,7 +16,7 @@ The experiment demonstrates HTTP communication between Node-RED and an STM32-bas
 
 The STM32F401RE communicates with the ESP8266 through USART6. The ESP8266 connects to the Wi-Fi network and acts as a TCP server on port 80. Node-RED acts as a second HTTP client and sends requests to the STM32/ESP8266 server.
 
-![TASK11C](Task11C.jpeg)
+![TASK11C](TASK11C.jpeg)
 
 **Hardware Components:**
 
