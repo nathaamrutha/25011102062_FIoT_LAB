@@ -108,6 +108,6 @@ The STM32 reads temperature, pressure and humidity values from the BME280 sensor
 
 The published sensor data is also visualized using Node-RED, where it is combined with outdoor weather information obtained through the OpenWeather API. This enables real-time indoor and outdoor condition monitoring and temperature-based outfit recommendations through an interactive dashboard.
 
-![nodered](nodred.png)
+![nodered](nodered.png)
 
 ![dashboard](dashboard.png)
