@@ -14,7 +14,7 @@
 
 The experiment demonstrates GPIO input and output operations using the STM32 microcontroller. GPIO pin PC13 is configured as a digital input to detect push button presses, while PA5 is configured as a digital output to control the LED.
 
-![CAT12C](CAT12C.jpeg)
+![TASK12C](TASK12C.jpeg)
 
 **Hardware Components:**
 
