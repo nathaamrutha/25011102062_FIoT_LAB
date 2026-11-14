@@ -14,6 +14,8 @@
 
 The experiment demonstrates communication between the STM32 microcontroller and the Wemos ESP8266 Wi-Fi module using UART communication. The ESP8266 acts as a Wi-Fi interface and TCP server, while the STM32 processes incoming HTTP requests and generates webpage responses.
 
+![TASK11B](TASK11B.jpeg)
+
 **Hardware Components:**
 
 - **Development Board:** STM32F401RE
