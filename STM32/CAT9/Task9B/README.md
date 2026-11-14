@@ -14,6 +14,8 @@
 
 The experiment uses the onboard LED of the STM32 Blue Pill development board and USART1 for serial communication.
 
+![TASK9B](TASK9B.jpeg)
+
 **Hardware Components:**
 - **Development Board:** STM32 Blue Pill
 - **Microcontroller IC:** STM32F103C8T6
