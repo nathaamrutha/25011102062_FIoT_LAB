@@ -14,6 +14,8 @@
 
 The experiment demonstrates UART serial communication using the USART1 peripheral of the STM32 Blue Pill development board.
 
+![TASK9A](TASK9A.jpeg)
+
 **Hardware Components:**
 - **Development Board:** STM32 Blue Pill
 - **Microcontroller IC:** STM32F103C8T6
