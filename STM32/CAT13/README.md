@@ -16,6 +16,8 @@ The experiment demonstrates interfacing the BME280 environmental sensor with the
 
 The BME280 sensor measures temperature, atmospheric pressure, and relative humidity. The STM32 communicates with the sensor through the I2C1 peripheral to retrieve the environmental data.
 
+![CAT13][CAT13.jpeg]
+
 **Hardware Components:**
 
 - **Development Board:** STM32F401RE
