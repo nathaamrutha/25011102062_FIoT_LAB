@@ -74,6 +74,19 @@ The sensor readings are formatted into a JSON message:
 | Session | Clean Session |
 | Publishing Interval | 2 seconds |
 
+## Node-RED Dashboard Integration
+
+The MQTT sensor data was further integrated into Node-RED to develop an **Indian Smart Outfit Advisor** dashboard.
+
+- An MQTT input node receives the BME280 sensor readings in JSON format and displays indoor temperature, humidity and pressure.
+- An HTTP request node retrieves real-time outdoor weather information from the OpenWeather API.
+- Function nodes process and store indoor and outdoor readings using flow context variables.
+- The dashboard displays separate sections for Indoor Conditions, Outdoor Conditions, Weather Details and Outfit Recommendations.
+- Based on indoor and outdoor temperatures, the system recommends suitable clothing for men and women, considering the difference between indoor and outdoor environments.
+- The recommendations include suitable clothing options such as shirts, T-shirts, jackets and sweaters depending on the temperature conditions.
+
+This integration combines real-time IoT sensor monitoring with weather API data to provide context-based outfit suggestions through a Node-RED dashboard.
+
 ## Functions Used
 
 - `bme280_init()` – Initializes the BME280 sensor.
@@ -92,3 +105,9 @@ The sensor readings are formatted into a JSON message:
 ## Inference
 
 The STM32 reads temperature, pressure and humidity values from the BME280 sensor through I2C, converts the readings into JSON format, and publishes the data to an MQTT broker using the ESP8266 Wi-Fi module.
+
+The published sensor data is also visualized using Node-RED, where it is combined with outdoor weather information obtained through the OpenWeather API. This enables real-time indoor and outdoor condition monitoring and temperature-based outfit recommendations through an interactive dashboard.
+
+![nodered](nodered.png)
+
+![dashboard](dashboard.png)
