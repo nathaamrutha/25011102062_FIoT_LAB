@@ -16,7 +16,7 @@ To interface the BME280 sensor with the STM32 microcontroller, read temperature,
 
 ## Circuit Diagram
 
-
+![CAT15](CAT15.jpeg)
 
 ## Connections
 
