@@ -1,0 +1,5 @@
+".\Objects\STARTUP.obj",
+".\Objects\bled.obj",
+".\Objects\delay.obj" 
+TO ".\Objects\Day1Task1" 
+PRINT(".\Listings\Day1Task1.m51") RAMSIZE(256) 

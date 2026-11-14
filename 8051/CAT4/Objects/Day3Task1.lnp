@@ -1,0 +1,6 @@
+".\Objects\STARTUP.obj",
+".\Objects\delay.obj",
+".\Objects\mini.obj",
+".\Objects\patterns.obj" 
+TO ".\Objects\Day3Task1" 
+PRINT(".\Listings\Day3Task1.m51") RAMSIZE(256) 

@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\lab5part3.obj" 
+TO ".\Objects\CAT5-Task3" 
+PRINT(".\Listings\CAT5-Task3.m51") RAMSIZE(256) 

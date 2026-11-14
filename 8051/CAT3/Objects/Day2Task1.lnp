@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\ledpatterns.obj" 
+TO ".\Objects\Day2Task1" 
+PRINT(".\Listings\Day2Task1.m51") RAMSIZE(256) 

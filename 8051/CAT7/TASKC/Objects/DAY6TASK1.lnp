@@ -1,0 +1,6 @@
+".\Objects\STARTUP.obj",
+".\Objects\delay.obj",
+".\Objects\LCD.obj",
+".\Objects\keypad.obj" 
+TO ".\Objects\DAY6TASK1" 
+PRINT(".\Listings\DAY6TASK1.m51") RAMSIZE(256) 
