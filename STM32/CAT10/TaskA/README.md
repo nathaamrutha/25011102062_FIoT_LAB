@@ -1,22 +1,51 @@
-# STM32 UART Communication with ESP8266
+# EXPERIMENT DETAILS
 
-## 1. Aim
-To establish UART communication between the STM32 microcontroller and an ESP8266 Wi-Fi module using USART1 and USART2, and display the received AT command response on a serial terminal.
+**EXP:** CONTINUOUS ASSESSMENT 10
 
-## 2. Components Required
-- STM32 microcontroller (STM32F103 series)
-- ESP8266 Wi-Fi module
-- USB-to-Serial converter / ST-Link
-- Jumper wires
-- Computer with STM32CubeIDE
+**NAME OF EXP:** UART Communication between STM32 and ESP8266 using AT Commands
 
-## 3. Software Requirements
-- STM32CubeIDE
-- STM32CubeMX
-- Embedded C
-- HAL Library
+**HARDWARE SETUP / PLATFORM:** STM32CubeMX + STM32CubeIDE / Keil MDK + STM32 Development Board + ESP8266 Wi-Fi Module
 
-## 4. Communication Configuration
+---
+
+## TASK A – UART Communication using STM32 and ESP8266
+
+### 1. Circuit Diagram
+
+The experiment demonstrates UART-based serial communication between the STM32 microcontroller and ESP8266 Wi-Fi module using AT commands.
+
+The STM32 communicates with the ESP8266 through USART1. The ESP8266 receives the AT command transmitted by the STM32 and sends its response back through the same UART interface.
+
+USART2 is used to forward the received response from the ESP8266 to a computer through a serial terminal for monitoring.
+
+![TASK10A](TASK10A.jpeg)
+
+**Hardware Components:**
+
+- **Development Board:** STM32 Development Board
+- **Wi-Fi Module:** ESP8266
+- **UART Peripherals:** USART1 and USART2
+- **Communication Protocol:** UART
+- **Command Interface:** ESP8266 AT Commands
+- **Serial Terminal:** Computer serial terminal
+
+**Connections:**
+
+*STM32 to ESP8266:*
+
+- STM32 USART1 TX (PA9) → ESP8266 RX
+- STM32 USART1 RX (PA10) → ESP8266 TX
+- STM32 GND → ESP8266 GND
+
+*STM32 to Serial Terminal:*
+
+- STM32 USART2 TX (PA2) → USB-to-Serial Converter RX
+- STM32 USART2 RX (PA3) → USB-to-Serial Converter TX
+- STM32 GND → USB-to-Serial Converter GND
+
+Ensure that the ESP8266 receives a suitable 3.3V power supply and that UART logic levels are compatible.
+
+**UART Configuration:**
 
 | Parameter | USART1 | USART2 |
 |---|---|---|
@@ -24,57 +53,69 @@ To establish UART communication between the STM32 microcontroller and an ESP8266
 | Word Length | 8 Bits | 8 Bits |
 | Stop Bits | 1 | 1 |
 | Parity | None | None |
-| Mode | TX and RX | TX and RX |
+| Mode | Transmitter and Receiver | Transmitter and Receiver |
 
-## 5. Pin Connections
+### 2. Core Logic / Pseudocode / Code Base
 
-### STM32 to ESP8266
+**Working Principle:**
 
-| STM32 Pin | ESP8266 Pin |
-|---|---|
-| USART1 TX (PA9) | RX |
-| USART1 RX (PA10) | TX |
-| GND | GND |
+The experiment demonstrates serial communication between the STM32 microcontroller and ESP8266 using AT commands.
 
-### STM32 to Serial Terminal
+Initially, the STM32 initializes the HAL library, configures the system clock, and initializes the GPIO and UART peripherals.
 
-| STM32 Pin | USB-to-Serial Converter |
-|---|---|
-| USART2 TX (PA2) | RX |
-| USART2 RX (PA3) | TX |
-| GND | GND |
+USART1 is configured for communication with the ESP8266, while USART2 is configured for communication with the computer's serial terminal.
 
-**Note:** Ensure that the ESP8266 receives a suitable 3.3V supply and that UART logic levels are compatible.
+After initializing both UART peripherals, the STM32 transmits the AT command `AT\r\n` to the ESP8266 through USART1.
 
-## 6. Working Principle
+The ESP8266 processes the received AT command and transmits its response through USART1.
 
-1. The STM32 microcontroller initializes the system clock and GPIO peripherals.
-2. USART1 and USART2 are initialized with a baud rate of 115200.
-3. The STM32 transmits the AT command `AT\r\n` to the ESP8266 through USART1.
-4. The ESP8266 processes the AT command and sends its response through USART1.
-5. The STM32 receives the response one byte at a time.
-6. Each received byte is transmitted to the computer through USART2.
-7. The response can be observed using a serial terminal.
+The STM32 continuously receives the response one byte at a time using `HAL_UART_Receive()`.
 
-## 7. Program Logic
+Each received byte is immediately forwarded to the computer through USART2 using `HAL_UART_Transmit()`.
 
-- Initialize HAL and configure the system clock.
-- Initialize GPIO, USART1 and USART2.
-- Send the AT command to the ESP8266.
-- Continuously receive data through USART1.
-- Forward each received byte through USART2.
+The received response can be monitored using a serial terminal configured with a baud rate of 115200.
 
-## 8. Expected Output
+**Pseudocode:**
 
-When the ESP8266 is connected and responding correctly, the serial terminal should display:
+1. Initialize the HAL library.
+2. Configure the system clock.
+3. Initialize GPIO peripherals.
+4. Initialize USART1 with a baud rate of 115200.
+5. Initialize USART2 with a baud rate of 115200.
+6. Define the AT command `AT\r\n`.
+7. Transmit the AT command to ESP8266 through USART1.
+8. Declare a variable to store the received byte.
+9. Enter the infinite loop.
+10. Receive one byte of data from ESP8266 through USART1.
+11. Transmit the received byte through USART2.
+12. Display the ESP8266 response on the serial terminal.
+13. Repeat the receiving and forwarding process continuously.
 
-```text
-AT
-OK
-```
+**Code Base:**
 
-The exact response may vary depending on the ESP8266 firmware.
+The UART communication operations are performed using the following STM32 HAL library functions:
 
-## 9. Result
+- `HAL_Init()` – Initializes the HAL library.
+- `SystemClock_Config()` – Configures the system clock.
+- `MX_GPIO_Init()` – Initializes the GPIO peripherals.
+- `MX_USART1_UART_Init()` – Initializes USART1 for communication with ESP8266.
+- `MX_USART2_UART_Init()` – Initializes USART2 for serial terminal communication.
+- `HAL_UART_Transmit()` – Transmits data through the selected UART peripheral.
+- `HAL_UART_Receive()` – Receives data through the selected UART peripheral.
 
-UART communication between the STM32 microcontroller and ESP8266 was implemented using USART1. The received response was forwarded to the computer through USART2 and displayed on the serial terminal.
+**Important Variables and Structures:**
+
+- `huart1` – UART handle used for communication with ESP8266.
+- `huart2` – UART handle used for communication with the serial terminal.
+- `cmd` – Stores the AT command string transmitted to ESP8266.
+- `rx` – Stores one byte of data received from ESP8266.
+
+### 3. Inference
+
+The STM32 microcontroller communicates with the ESP8266 Wi-Fi module through USART1 using UART communication.
+
+The STM32 transmits the AT command `AT\r\n` to the ESP8266 and receives its response through the same UART interface.
+
+The received response is forwarded to the computer through USART2 and can be monitored using a serial terminal.
+
+This experiment demonstrates UART initialization, serial data transmission, byte-wise reception, and communication between an STM32 microcontroller and an ESP8266 Wi-Fi module using AT commands.
